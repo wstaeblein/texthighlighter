@@ -1,8 +1,9 @@
-/*  By Walter Staeblein - 2023
+/*  *******************************************************
+    By Walter Staeblein - 2023
     MIT Licence - https://choosealicense.com/licenses/mit/
 
     https://github.com/wstaeblein/highlightTextarea
-*/ 
+    *******************************************************/ 
 class textareaHighlight {
 
     constructor(ele) {
@@ -10,7 +11,6 @@ class textareaHighlight {
         this.origBkgColor = styles.backgroundColor;
 
         this.ele = ele;
-        this.events = new eventHandler();
         this.searchArg = '';
 
         this.handlers = {

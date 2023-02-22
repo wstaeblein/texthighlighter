@@ -5,8 +5,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="./style.css" rel="stylesheet">
-        <link href="./style.css" rel="stylesheet">
+        <link href="./textareaHighlight.css" rel="stylesheet">
         <script src="textareaHighlight.js"></script>
+        <style>
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            text-transform: uppercase;
+        }
+
+        main {
+            max-width: 1000px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            height: 150px;
+            outline: none;
+            padding: 5px 10px;
+            font-size: 18px;
+            color: maroon;
+            margin-top: 10px;
+            background-color: #ffffe1;
+        }
+
+        nav {
+            margin: 20px 0;
+        }            
+        </style>
     </head>
     <body>
         <main>
@@ -14,7 +45,7 @@
 
             <div>
                 <p>Javascript class to highlight search results on a textarea without interfering with its operation</p>
-                <textarea id="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur risus quis justo lobortis tincidunt. Proin ultricies, nisi ut finibus rhoncus, massa odio gravida tortor, vitae pharetra nunc enim ornare turpis. Maecenas ut aliquam tortor, vitae condimentum sem. Integer ultrices pharetra mauris, eget tincidunt ligula sollicitudin eget. Donec lectus leo, bibendum ac magna non, dictum imperdiet est. Suspendisse vestibulum mollis tortor ut pharetra. Nunc ut felis volutpat, pretium dolor at, cursus libero. Proin sollicitudin quam nec diam vehicula commodo. Sed tincidunt libero eu vulputate porttitor. Sed rhoncus vehicula orci, non posuere felis congue ac.</textarea>
+                <textarea id="txt" spellcheck="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur risus quis justo lobortis tincidunt. Proin ultricies, nisi ut finibus rhoncus, massa odio gravida tortor, vitae pharetra nunc enim ornare turpis. Maecenas ut aliquam tortor, vitae condimentum sem. Integer ultrices pharetra mauris, eget tincidunt ligula sollicitudin eget. Donec lectus leo, bibendum ac magna non, dictum imperdiet est. Suspendisse vestibulum mollis tortor ut pharetra. Nunc ut felis volutpat, pretium dolor at, cursus libero. Proin sollicitudin quam nec diam vehicula commodo. Sed tincidunt libero eu vulputate porttitor. Sed rhoncus vehicula orci, non posuere felis congue ac.</textarea>
                 <nav>
                     <input type="text" id="find" onkeypress="preGo(event)">
                     <button onclick="markText()">Search</button>

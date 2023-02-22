@@ -1,29 +1,2 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-}
 
-h1 {
-    text-transform: uppercase;
-}
-
-main {
-    max-width: 1000px;
-    width: 100%;
-    margin: 20px auto;
-}
-
-textarea {
-    width: calc(100% - 22px);
-    height: 150px;
-    outline: none;
-    padding: 5px 10px;
-    font-size: 18px;
-    color: maroon;
-    margin-top: 10px;
-    background-color: yellow;
-}
-
-nav {
-    margin: 20px 0;
-}
 

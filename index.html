@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>Highlight Textarea Component</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./style.css" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
+        <script src="textareaHighlight.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1>Highlight Textarea</h1>
+
+            <div>
+                <p>Javascript class to highlight search results on a textarea without interfering with its operation</p>
+                <textarea id="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur risus quis justo lobortis tincidunt. Proin ultricies, nisi ut finibus rhoncus, massa odio gravida tortor, vitae pharetra nunc enim ornare turpis. Maecenas ut aliquam tortor, vitae condimentum sem. Integer ultrices pharetra mauris, eget tincidunt ligula sollicitudin eget. Donec lectus leo, bibendum ac magna non, dictum imperdiet est. Suspendisse vestibulum mollis tortor ut pharetra. Nunc ut felis volutpat, pretium dolor at, cursus libero. Proin sollicitudin quam nec diam vehicula commodo. Sed tincidunt libero eu vulputate porttitor. Sed rhoncus vehicula orci, non posuere felis congue ac.</textarea>
+                <nav>
+                    <input type="text" id="find" onkeypress="preGo(event)">
+                    <button onclick="markText()">Search</button>
+                </nav>
+            </div>
+        </main>
+
+        <script>
+            let tarea, hilite;
+
+            function preGo(evt) { 
+                if (evt.key === "Enter") {
+                    event.preventDefault();
+                    markText();
+                }
+            }
+
+            function markText() {
+                let arg = document.getElementById('find').value; 
+                if (arg) { hilite.search(arg); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                hilite = new textareaHighlight(document.getElementById('txt'));
+            });
+        </script>
+    </body>
+</html>

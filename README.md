@@ -2,6 +2,8 @@
 
 Vanilla JS class to highlight search results in a textarea while maintaining the area's functionality
 
+##### [DEMO](https://wstaeblein.github.io/highlightTextarea/)
+
 - No dependencies
 - Can be used in as many textareas as needed, just instantiate for each one.
 - Responsive. The markings will adjust to screen size
@@ -20,7 +22,13 @@ let searchResult = '';
 hilite.search(searchResult)
 ```
 
-When it falls out of scope, just call de destroy method and all will be as it was before instantiation.
+Should you need to clear out the marking, call the clear method
+
+```javascript
+hilite.clear();
+```
+
+When it falls out of scope, just call the destroy method and all will be as it was before instantiation.
 
 ```javascript
 hilite.destroy();

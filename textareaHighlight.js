@@ -48,6 +48,12 @@ class textareaHighlight {
         this.#inputHandler();
     }
 
+    clear() { 
+        this.searchArg  = '';
+        this.hilite.innerHTML = this.hilite.textContent;
+
+    }
+
     destroy() {
         this.ele.removeEventListener('input', this.handlers.input);
         this.ele.removeEventListener('scroll', this.handlers.scroll);
@@ -84,8 +90,8 @@ class textareaHighlight {
 
     #markText() { 
         let txt = this.ele.value;
-        if (this.searchArg && txt.includes(this.searchArg)) {
-            let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'gi');
+        if (this.searchArg) {
+            let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'gi'); 
             return txt.replace(re, '<mark>$1</mark>');
         } else {
             return txt;
@@ -95,8 +101,8 @@ class textareaHighlight {
     // Escape a string to be used in a Regex search (replace)
     #escapeString(txt) {
         let specials = ['-', '[', ']', '/', '{', '}', '(', ')', '*', '+', '?', '.', '\\', '^', '$', '|'];
-        let regex = RegExp('[' + specials.join('\\') + ']', 'g');
-        return txt.replace(regex, '\\$&');
+        let regex = RegExp('[' + specials.join('\\') + ']', 'g'); console.log('--> ' + txt.replace(regex, '\\$&'))
+        return txt.replace(regex, '\\$&'); 
     }
 
     #scrollHandler() { 

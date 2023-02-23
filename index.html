@@ -49,6 +49,7 @@
                 <nav>
                     <input type="text" id="find" onkeypress="preGo(event)">
                     <button onclick="markText()">Search</button>
+                    <button onclick="hilite.clear()">Clear</button>
                 </nav>
             </div>
         </main>
@@ -67,6 +68,8 @@
                 let arg = document.getElementById('find').value; 
                 if (arg) { hilite.search(arg); }
             }
+
+/*             function cls() { hilite.clear(); } */
 
             document.addEventListener('DOMContentLoaded', function() {
                 hilite = new textareaHighlight(document.getElementById('txt'));

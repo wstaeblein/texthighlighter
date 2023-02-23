@@ -34,6 +34,10 @@
             background-color: #ffffe1;
         }
 
+        select {
+            padding: 1px;
+        }
+
         nav {
             margin: 20px 0;
         }            
@@ -48,6 +52,10 @@
                 <textarea id="txt" spellcheck="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur risus quis justo lobortis tincidunt. Proin ultricies, nisi ut finibus rhoncus, massa odio gravida tortor, vitae pharetra nunc enim ornare turpis. Maecenas ut aliquam tortor, vitae condimentum sem. Integer ultrices pharetra mauris, eget tincidunt ligula sollicitudin eget. Donec lectus leo, bibendum ac magna non, dictum imperdiet est. Suspendisse vestibulum mollis tortor ut pharetra. Nunc ut felis volutpat, pretium dolor at, cursus libero. Proin sollicitudin quam nec diam vehicula commodo. Sed tincidunt libero eu vulputate porttitor. Sed rhoncus vehicula orci, non posuere felis congue ac.</textarea>
                 <nav>
                     <input type="text" id="find" onkeypress="preGo(event)">
+                    <select id="sens">
+                        <option value="">Insensitive</option>
+                        <option value="1">Sensitive</option>
+                    </select>
                     <button onclick="markText()">Search</button>
                     <button onclick="hilite.clear()">Clear</button>
                 </nav>
@@ -66,10 +74,11 @@
 
             function markText() {
                 let arg = document.getElementById('find').value; 
-                if (arg) { hilite.search(arg); }
+                let sens = document.getElementById('sens').value; 
+                if (arg) { hilite.search(arg, sens); }
             }
 
-/*             function cls() { hilite.clear(); } */
+            function cls() { hilite.clear(); }
 
             document.addEventListener('DOMContentLoaded', function() {
                 hilite = new textareaHighlight(document.getElementById('txt'));

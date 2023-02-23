@@ -12,6 +12,7 @@ class textareaHighlight {
 
         this.ele = ele;
         this.searchArg = '';
+        this.sensitive = false;
 
         this.handlers = {
             input: this.#inputHandler.bind(this),
@@ -43,8 +44,9 @@ class textareaHighlight {
         this.#inputHandler();
     }
     
-    search(arg) {
+    search(arg, sensitive) {
         this.searchArg = arg;
+        this.sensitive = !!sensitive;
         this.#inputHandler();
     }
 
@@ -91,7 +93,7 @@ class textareaHighlight {
     #markText() { 
         let txt = this.ele.value;
         if (this.searchArg) {
-            let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'gi'); 
+            let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'g' + (this.sensitive ? '' : 'i')); 
             return txt.replace(re, '<mark>$1</mark>');
         } else {
             return txt;

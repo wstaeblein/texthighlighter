@@ -11,7 +11,6 @@
 .hlta-highlight {
     background: FFDAE2AA;
     color: transparent; 
-    white-space: pre-wrap;
 }
 
 .hlta-container > .htla-textarea {
@@ -20,5 +19,5 @@
 }
 
 .hlta-highlight mark {
-    background-color: gold;
+    background-color: #bbb7ff;
 }

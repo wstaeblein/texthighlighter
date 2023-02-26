@@ -4,13 +4,14 @@
 
     https://github.com/wstaeblein/highlightTextarea
     *******************************************************/ 
-class textareaHighlight {
+class textHighlight {
 
     constructor(ele) {
         let styles = window.getComputedStyle(ele);
         this.origBkgColor = styles.backgroundColor;
 
         this.ele = ele;
+        this.isTextArea = this.ele.tagName == 'TEXTAREA';
         this.searchArg = '';
         this.sensitive = false;
 
@@ -69,7 +70,7 @@ class textareaHighlight {
 
     #resizeObs() {
         let styles = window.getComputedStyle(this.ele);
-        let width = this.ele.offsetWidth
+        let width = this.ele.scrollWidth; console.log(this.ele.offsetWidth, ', ', this.ele.scrollWidth)
         let height = this.ele.offsetHeight;
 
         let css = `width: ${width}px; height: ${height}px; margin: ${styles.marginTop} ${styles.marginRight} ${styles.marginBottom} ${styles.marginLeft}; 
@@ -78,6 +79,7 @@ class textareaHighlight {
         this.#copyStyles(this.ele, this.hilite, ['width', 'paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom', 'borderTop', 
                                                 'borderLeft', 'borderRight', 'borderBottom', 'fontFamily', 'fontSize', 'fontWeight', 'lineHeight']);
         this.hilite.style.minHeight = styles.height;
+        this.hilite.style.whiteSpace = this.isTextArea ? 'pre-wrap' : 'nowrap';
     }
 
     #inputHandler() {
@@ -91,7 +93,7 @@ class textareaHighlight {
     }
 
     #markText() { 
-        let txt = this.ele.value;
+        let txt = this.isTextArea ? this.ele.value : this.ele.textContent;
         if (this.searchArg) {
             let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'g' + (this.sensitive ? '' : 'i')); 
             return txt.replace(re, '<mark>$1</mark>');

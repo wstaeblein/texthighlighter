@@ -54,7 +54,6 @@ class textHighlight {
     clear() { 
         this.searchArg  = '';
         this.hilite.innerHTML = this.hilite.textContent;
-
     }
 
     destroy() {
@@ -76,7 +75,7 @@ class textHighlight {
         let css = `width: ${width}px; height: ${height}px; margin: ${styles.marginTop} ${styles.marginRight} ${styles.marginBottom} ${styles.marginLeft}; 
                    background-color: ${this.origBkgColor}`; 
         this.backdrop.style.cssText = css;
-        this.#copyStyles(this.ele, this.hilite, ['width', 'paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom', 'borderTop', 
+        this.#copyStyles(this.ele, this.hilite, ['width', 'paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom', 'borderTop', 'letterSpacing',
                                                 'borderLeft', 'borderRight', 'borderBottom', 'fontFamily', 'fontSize', 'fontWeight', 'lineHeight']);
         this.hilite.style.minHeight = styles.height;
         this.hilite.style.whiteSpace = this.isTextArea ? 'pre-wrap' : 'nowrap';
@@ -105,7 +104,7 @@ class textHighlight {
     // Escape a string to be used in a Regex search (replace)
     #escapeString(txt) {
         let specials = ['-', '[', ']', '/', '{', '}', '(', ')', '*', '+', '?', '.', '\\', '^', '$', '|'];
-        let regex = RegExp('[' + specials.join('\\') + ']', 'g'); console.log('--> ' + txt.replace(regex, '\\$&'))
+        let regex = RegExp('[' + specials.join('\\') + ']', 'g'); 
         return txt.replace(regex, '\\$&'); 
     }
 
@@ -115,5 +114,3 @@ class textHighlight {
         this.backdrop.style.transform = (sclLeft > 0) ? 'translateX(' + -sclLeft + 'px)' : '';
     }
 }
-
-

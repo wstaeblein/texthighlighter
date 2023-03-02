@@ -15,7 +15,7 @@
 
 .hlta-container > .htla-textarea {
     position: relative;
-    background: none transparent;
+    background: none transparent !important;
 }
 
 .hlta-highlight mark {

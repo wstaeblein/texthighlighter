@@ -46,6 +46,16 @@ When it falls out of scope, just call the destroy method and all will be as it w
 hilite.destroy();
 ```
 
+### Custom Match Color
+
+If you have included the styles found in `texthighlighter.css`, the color used to highlight a match can be customized by setting the css custom property `--hlta-match-color` on your document root, e.g.:
+
+```css
+:root {
+  --hlta-match-color: rebeccapurple; /* https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/ */
+}
+```
+
 
 ## About
 

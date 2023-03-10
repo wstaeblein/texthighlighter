@@ -19,5 +19,5 @@
 }
 
 .hlta-highlight mark {
-    background-color: #bbb7ff;
+    background-color: var(--hlta-match-color, #bbb7ff);
 }

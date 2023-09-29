@@ -92,7 +92,7 @@ class textHighlight {
     }
 
     #markText() { 
-        let txt = this.isTextArea ? this.ele.value : this.ele.textContent;
+        let txt = escape(this.isTextArea ? this.ele.value : this.ele.textContent);
         if (this.searchArg) {
             let re = new RegExp('(' + this.#escapeString(this.searchArg) + ')', 'g' + (this.sensitive ? '' : 'i')); 
             return txt.replace(re, '<mark>$1</mark>');

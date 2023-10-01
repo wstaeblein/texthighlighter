@@ -1,5 +1,6 @@
 .hlta-container {
     position: relative;
+    text-size-adjust: none;
 }
 
 .hlta-backdrop {
@@ -9,7 +10,12 @@
 }
 
 .hlta-highlight {
-    color: transparent; 
+    color: transparent !important; 
+    word-wrap: break-word !important;
+}
+
+.hlta-highlight > * {
+    display: none;
 }
 
 .hlta-container > .htla-textarea {
@@ -17,6 +23,12 @@
     background: none transparent !important;
 }
 
-.hlta-highlight mark {
-    background-color: #bbb7ff;
+.hlta-highlight > mark {
+    background-color: #fccfc8;
+    display: inline-block;
+}
+
+
+.hlta-highlight > mark.sel {
+    background-color: #ff8572;
 }

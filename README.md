@@ -2,24 +2,30 @@
 
 Vanilla JS class to highlight search results in a textarea while maintaining the area's functionality.
 
-##### [Check out the DEMO](https://wstaeblein.github.io/texthighlighter/)
+Since one can't style the text in a textarea, as it is not HTML, this class comes to the rescue allowing you to highlight any text in a textarea. Such as in search results.
+
+
+![Screenshot](screen.png)
+
+
+#### [CHECK OUT THE DEMO](https://wstaeblein.github.io/texthighlighter/)
 
 
 ## Features
 
 - No dependencies.
-- No configuration.
+- No configuration. Just instantiate the class and call a method.
 - Can be used in as many textareas as needed, just instantiate for each one.
 - Responsive. The markings will adjust to screen size, textarea size and scroll.
 - Keeps the original background from the textarea.
 - Can be properly destroyed. Will remove all events and structure.
 - Can choose between case sensitive and insensitive search.
-- Can serach freely or words only.
-- Search results count.
-- Search results navigation.
+- Can search freely or words only.
+- Provides a count of how many results were found.
+- Can navigate the search results, bringing them to view as needed.
 
 
-Since one can't style the text in a textarea, as it is not HTML, this class comes to the rescue allowing you to highlight any text in a textarea. Such as search results.
+
 
 Its use is very straightforward, instantiate the class for the textarea you need and call the search method to highlight the text you pass in the first argument. The second argument is optional and takes a boolean that if true will make the search case sensitive. The default is case insensitive.
 
@@ -48,7 +54,7 @@ To access how many occurrences were found, use:
 let count = hilite.count();
 ```
 
-You can navigate back and forth among the highlighted results using the prev and next methods:
+You can navigate back and forth among the highlighted results using the prev and next methods. This navigation is cyclic, this means when the end is reached the next press takes you back to the begining and vice versa. Example below:
 
 ```javascript
 let btnPrev = document.getElementById('prev');

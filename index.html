@@ -22,7 +22,7 @@
                 text-shadow: -1px -1px 0 #0a4ba0, 1px -1px 0 #0a4ba0, -1px 1px 0 #0a4ba0, 1px 1px 0 #0a4ba0;
                 font-size: 54px;
                 color: #fffffd;
-                margin: -20px 0 0;
+                margin: -45px 0 0;
                 letter-spacing: 3px;
             }
 
@@ -54,9 +54,9 @@
                 }
 
             textarea {
-                width: 941px; /* calc(100% - 22px); */
+                width: calc(100% - 34px);
                 height: 350px;
-                padding: 20px;
+                padding: 8px 16px;
                 font-size: 18px;
                 color: #444;
                 margin-top: 10px;
@@ -80,7 +80,7 @@
             }
 
             input[type=text] {
-                width: 250px;
+                max-width: 250px;
                 padding: 5px 10px;
                 font-size: 16px;
             }
@@ -93,6 +93,7 @@
             nav {
                 margin: 0;
                 display: flex;
+                flex-wrap: wrap;
                 gap: 20px;
             }    
             
@@ -117,6 +118,10 @@
             .hidden {
                 display: none;
             }
+
+            .smalltitle {
+                margin-top: 0;
+            }
         </style>
     </head>
     <body>
@@ -124,7 +129,7 @@
             <h1>Text Highlighter</h1>
 
             <div>
-                <p>Javascript class to highlight search results on a textarea without interfering with its operation</p>
+                <p class="smalltitle">Javascript class to highlight search results on a textarea without interfering with its operation</p>
                 <textarea id="txt" spellcheck="false">
 THE EGG
 By: Andy Weir
@@ -267,9 +272,9 @@ And I sent you on your way.
                 <p><b>Enter a search term below to start you search!</b>
                     <ul>
                         <li>Then choose the case sensitivity of the search and if it'll be free or words only. </li>
-                        <li>Then click the SEARCH button or hit ENTER to start a search. </li>
+                        <li>Next, click the SEARCH button or hit ENTER to start a search. </li>
                         <li> If you get any results, you can use the PREV (◀) and NEXT (▶) buttons <i>(that only appear after something is highlighted)</i> to navigate them. </li>
-                        <li>Then use the resize handler to change the box's dimensions and see the result markings adjust in real time. </li>
+                        <li>You can also use the resize handler to change the box's dimensions and see the result markings adjust in real time. </li>
                         <li>Finally, click the CLEAR button to remove any highlighted items and reset the class or just type a new search term and click SEARCH again. </li>
                     </ul>
                 </p>
@@ -284,8 +289,10 @@ And I sent you on your way.
                         <select id="word">
                             <option value="">Free Search</option>
                             <option value="1">Words Only</option>
-                        </select>                        
-                        <button onclick="markText()">Search</button>                        
+                        </select>                                              
+                    </span>
+                    <span>
+                        <button onclick="markText()">Search</button>
                     </span>
                     <span id="hoppers" class="hidden">
                         <button onclick="move('p')">◀</button>

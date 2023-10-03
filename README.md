@@ -8,7 +8,7 @@ Since one can't style the text in a textarea, as it is not HTML, this class come
 ![Screenshot](screen.png)
 
 
-#### [CHECK OUT THE DEMO](https://wstaeblein.github.io/texthighlighter/)
+#### [CHECK OUT THE DEMO](https://wstaeblein.github.io/texthighlighter/){:target="_blank"}
 
 
 ## Features
@@ -26,8 +26,7 @@ Since one can't style the text in a textarea, as it is not HTML, this class come
 
 
 
-
-Its use is very straightforward, instantiate the class for the textarea you need and call the search method to highlight the text you pass in the first argument. The second argument is optional and takes a boolean that if true will make the search case sensitive. The default is case insensitive.
+Its use is very straightforward, instantiate the class for the textarea you need and call the search method to highlight the text you pass in the first argument. The second argument is optional and takes a boolean that if true will make the search case sensitive. The default is case insensitive. The last argument also takes a boolean that, if true, will perform a word search. Otherwise it's a free search, where any part of words can be matched.
 
 
 
@@ -54,7 +53,7 @@ To access how many occurrences were found, use:
 let count = hilite.count();
 ```
 
-You can navigate back and forth among the highlighted results using the prev and next methods. This navigation is cyclic, this means when the end is reached the next press takes you back to the begining and vice versa. Example below:
+You can navigate back and forth among the highlighted results using the prev and next methods. This navigation is cyclic, this means when the end is reached the next call takes you back to the begining and vice versa. Example below:
 
 ```javascript
 let btnPrev = document.getElementById('prev');

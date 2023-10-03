@@ -18,7 +18,7 @@
     display: none;
 }
 
-.hlta-container > .htla-textarea {
+.hlta-container > .hlta-textarea {
     position: relative;
     background: none transparent !important;
 }

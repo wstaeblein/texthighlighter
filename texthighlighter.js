@@ -20,7 +20,7 @@ class textHighlight {
             scroll: this.#scrollHandler.bind(this)
         }
 
-        this.ele.classList.add('htla-textarea');
+        this.ele.classList.add('hlta-textarea');
         this.ele.addEventListener('input', this.handlers.input);
         this.ele.addEventListener('scroll', this.handlers.scroll);
 
@@ -41,7 +41,8 @@ class textHighlight {
         this.container.append(this.backdrop);
         this.container.appendChild(this.ele);   
 
-        let obs = new ResizeObserver(this.#resizeObs.bind(this)).observe(this.ele);
+        let observer = new ResizeObserver(this.#resizeObs.bind(this));
+        observer.observe(this.ele);
         this.#inputHandler();
     }
     
@@ -78,6 +79,7 @@ class textHighlight {
     destroy() {
         this.ele.removeEventListener('input', this.handlers.input);
         this.ele.removeEventListener('scroll', this.handlers.scroll);
+        observer.disconnect();
 
         this.container.parentNode.insertBefore(this.ele, this.container);
         while (this.container.firstChild) {
@@ -112,8 +114,9 @@ class textHighlight {
     }
 
     #markText() { 
+        let txt = this.ele.value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
         if (this.searchArg) { console.log(this.ele.value)
-            let txt = this.ele.value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            
             let searchArg = this.searchArg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
             let boundary = this.word ? '\\b' : '';
 
